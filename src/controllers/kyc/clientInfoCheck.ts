@@ -1,4 +1,9 @@
 import * as express from "express";
+import * as moment from "moment";
+
+import { validateClientInfo } from "../../utility/validations/clientInfoValidation";
+
+// const VALID_DATE_FORMAT =  new RegExp('/^[\d]{4}-[\d]{2}-[\d]{2}$/')
 
 // Initialize axios for http calls
 // const axios = require("axios");
@@ -6,7 +11,26 @@ import * as express from "express";
 export const clientInfoCheck = (req: express.Request,
                                 res: express.Response) => {
 
-    res.send(req.body)
+    const dateOfBirth = req.body.dateOfBirth;
+    const expiryDate = req.body.expiryDate;
+
+    const isDOBFormatValid = moment(dateOfBirth, "YYYY-MM-DD", true).isValid();
+    const isExpiryFormatValid = moment(expiryDate, "YYYY-MM-DD", true).isValid();
+
+    if (isDOBFormatValid && isExpiryFormatValid) {
+        const errorDetails = validateClientInfo(req.body).error                              
+
+        if (errorDetails) {
+            res.json({error: errorDetails.details}) 
+        } else {
+            res.send(req.body)
+        }                                  
+       
+    } else {
+        res.json({error: "Invalid Date Formats - Should be YYYY-MM-DD"})
+    }
+
+   
     
     
     //  store key into process environment variables  
