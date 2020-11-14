@@ -1,8 +1,14 @@
 import * as express from 'express';
 
+import * as bodyParser from "body-parser";
+
 import apiRoutes from "../routes/upstreetkyc-routes";
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
 
 // Middleware to handle logging operations
 app.use("/upstreet/api", apiRoutes);

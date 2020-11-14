@@ -6,10 +6,11 @@ import * as express from "express";
 export const clientInfoCheck = (req: express.Request,
                                 res: express.Response) => {
 
-    res.send("Hello there!!! ")
+    res.send(req.body)
     
-       
-    //    const reqParams = req.query.UID;
+    
+    //  store key into process environment variables  
+    //  const reqParams = req.query.UID;
 
     //    axios.get(`https://ottdevapi.azure-api.net/sso/api/sso.accountInfo?UID=${reqParams}`,    
     //    {headers : { "Ocp-Apim-Subscription-Key": "cc238828849d4089b92686d4b25bd990" } }
