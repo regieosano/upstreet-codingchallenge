@@ -2,6 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.clientInfoCheck = void 0;
 exports.clientInfoCheck = (req, res) => {
-    console.log("Hello");
+    res.send("Hello there!!! ");
 };
 //# sourceMappingURL=clientInfoCheck.js.map

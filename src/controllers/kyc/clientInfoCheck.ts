@@ -6,7 +6,8 @@ import * as express from "express";
 export const clientInfoCheck = (req: express.Request,
                                 res: express.Response) => {
 
-    console.log("Hello")                                
+    res.send("Hello there!!! ")
+    
        
     //    const reqParams = req.query.UID;
 
