@@ -34,7 +34,9 @@ const onListening = () => {
 
 app.set("port", PORT);
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Listening on port - ${PORT} ...`)
+});
 app.on("error", (err: any) => {
   onError(err);
 });

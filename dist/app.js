@@ -27,7 +27,9 @@ const onListening = () => {
     console.log("Listening on " + bind);
 };
 server_1.default.set("port", PORT);
-server_1.default.listen(PORT);
+server_1.default.listen(PORT, () => {
+    console.log(`Listening on port - ${PORT} ...`);
+});
 server_1.default.on("error", (err) => {
     onError(err);
 });
