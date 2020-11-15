@@ -18,12 +18,11 @@ exports.clientInfoCheck = (req, res) => {
             else {
                 const options = {
                     headers: {
-                        "Authorization": "Bearer 03aa7ba718da920e0ea362c876505c6df32197940669c5b150711b03650a78cf",
+                        "Authorization": `Bearer ${process.env.API_KEY}`,
                         "Content-Type": "application/json"
                     }
                 };
-                axios.post(`https://australia-southeast1-reporting-290bc.cloudfunctions.net/driverlicence
-               `, {
+                axios.post(`${process.env.API_ENDPOINT}`, {
                     birthDate: req.body.dateOfBirth,
                     givenName: req.body.firstName,
                     middleName: req.body.middleName,

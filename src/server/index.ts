@@ -6,7 +6,12 @@ import * as express from 'express';
 
 import * as bodyParser from "body-parser";
 
+import * as dotenv from "dotenv";
+
 import apiRoutes from "../routes/upstreetkyc-routes";
+
+// Refer to dotenv variables
+dotenv.config();
 
 const app = express();
 

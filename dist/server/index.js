@@ -5,6 +5,8 @@ const cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
 const upstreetkyc_routes_1 = require("../routes/upstreetkyc-routes");
+const dotenv = require("dotenv");
+dotenv.config();
 const app = express();
 app.use(helmet());
 app.use(cors({
