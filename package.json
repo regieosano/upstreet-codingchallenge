@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "start": "node dist/app.js",
     "devstart": "npm run tsc && node dist/app.js",
     "tsc": "tsc"
   },

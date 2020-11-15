@@ -21,6 +21,11 @@ app.use(
    })
 );
 
+// Uncaught exception
+process.on("uncaughtException", (err) => {
+    console.log(err);
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
@@ -45,7 +50,6 @@ app.use((req: express.Request,
               res.status(404);
               res.json({ error: "NOT FOUND - Check CORRECT address or DATABASE DOWN" });
         }
-
-  );
+);
 
 export default app;

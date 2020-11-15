@@ -67,7 +67,5 @@ export const clientInfoCheck = (req: express.Request,
        
     } catch (error) {
         res.json({error}) 
-    } 
-  
-    
+    }  
 }
