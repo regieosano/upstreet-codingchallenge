@@ -1,3 +1,7 @@
+import * as helmet from "helmet";
+
+import * as cors from "cors";
+
 import * as express from 'express';
 
 import * as bodyParser from "body-parser";
@@ -5,6 +9,17 @@ import * as bodyParser from "body-parser";
 import apiRoutes from "../routes/upstreetkyc-routes";
 
 const app = express();
+
+// Helmet Declaration
+app.use(helmet());
+
+// CORS middleware definition
+app.use(
+   cors({
+     origin: "*",
+     credentials: true,
+   })
+);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
