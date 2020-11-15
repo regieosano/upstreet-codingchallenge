@@ -12,7 +12,7 @@ exports.clientInfoCheck = (req, res) => {
     if (isDOBFormatValid && isExpiryFormatValid) {
         const errorDetails = clientInfoValidation_1.validateClientInfo(req.body).error;
         if (errorDetails) {
-            res.json({ error: errorDetails.details });
+            res.json({ error: errorDetails.details[0].message });
         }
         else {
             const options = {

@@ -20,7 +20,7 @@ export const clientInfoCheck = (req: express.Request,
         const errorDetails = validateClientInfo(req.body).error                              
 
         if (errorDetails) {
-            res.json({error: errorDetails.details}) 
+            res.json({error: errorDetails.details[0].message}) 
         } else {
             // Headers declaration
             const options = {
