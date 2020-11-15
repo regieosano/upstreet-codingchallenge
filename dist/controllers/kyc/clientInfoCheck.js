@@ -31,7 +31,21 @@ exports.clientInfoCheck = (req, res) => {
                 stateOfIssue: req.body.stateOfIssue,
                 expiryDate: req.body.expiryDate
             }, options).then((response) => {
-                res.json(response.data);
+                const returnCode = response.data.verificationResultCode;
+                switch (returnCode) {
+                    case "Y":
+                        res.json({ kycResult: true });
+                        break;
+                    case "N":
+                        res.json({ kycResult: false });
+                        break;
+                    case "D":
+                        res.json({ message: "Document Error" });
+                        break;
+                    case "S":
+                        res.json({ message: "Server Error" });
+                        break;
+                }
             }).catch((err) => {
                 res.json({
                     error: err

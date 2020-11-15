@@ -44,16 +44,14 @@ export const clientInfoCheck = (req: express.Request,
            options
                         
            ).then((response: any) => {
-            res.json(response.data.VerificationResultCode);
               // Extract verification code   
-            //   const returnCode = response.data.VerificationResultCode;
-            //   res.json({ kycResult: returnCode });
-            //   switch (returnCode) {
-            //      case "Y": res.json({ kycResult: true });  break;
-            //      case "N": res.json({ kycResult: false }); break;
-            //      case "D": res.json({ message: "Document Error" }); break;
-            //      case "S": res.json({ message: "Server Error" }); break;   
-            //   }     
+              const returnCode = response.data.verificationResultCode;
+              switch (returnCode) {
+                 case "Y": res.json({ kycResult: true });  break;
+                 case "N": res.json({ kycResult: false }); break;
+                 case "D": res.json({ message: "Document Error" }); break;
+                 case "S": res.json({ message: "Server Error" }); break;   
+              }     
           }).catch((err: Error) => {
               res.json({
                  error: err
