@@ -5,7 +5,7 @@ import { clientInfoCheck } from "../controllers/kyc/clientInfoCheck";
 
 const apiRoutes = express.Router({ strict: true });
 
-// Post info routes definition
+// Post client info routes definition
 apiRoutes.post("/kyc", clientInfoCheck);
 
 // Make the routes visible
