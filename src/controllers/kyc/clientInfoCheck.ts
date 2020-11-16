@@ -18,7 +18,7 @@ export const clientInfoCheck = (req: express.Request,
 
         if (isDOBFormatValid && isExpiryFormatValid) {
 
-           const errorDetails = validateClientInfo(req.body).error                              
+           const errorDetails = validateClientInfo(req.body).error
 
            if (errorDetails) {
                res.json({error: errorDetails.details[0].message}) 
