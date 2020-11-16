@@ -14,7 +14,7 @@ export const clientInfoCheck = (req: express.Request,
         const expiryDate = req.body.expiryDate;
 
         const isDOBFormatValid = moment(dateOfBirth, "YYYY-MM-DD", true).isValid();
-        const isExpiryFormatValid = moment(expiryDate, "YYYY-MM-DD", true).isValid();
+        const isExpiryFormatValid = typeof expiryDate === "undefined" ? true: moment(expiryDate, "YYYY-MM-DD", true).isValid();
 
         if (isDOBFormatValid && isExpiryFormatValid) {
 
